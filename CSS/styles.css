@@ -1,0 +1,131 @@
+html {
+    font-size: 16px;
+    height: 100%;
+}
+
+html, body, h1, h2, h3, p, ol, ul, li, a{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font: inherit;
+}
+body {
+    font-family: Garamond, Impact, Arial;
+    font-size: 62.5%; /*1em = 10px*/
+    height: 100%;
+}
+
+h1 {
+    font-size: 3.2em;
+    font-weight: bold;
+}
+
+h2 {
+   font-size: 2.4em;
+}
+
+p {
+   font-size: 1.6em;
+}
+
+header, footer, body, .container, .button, .buttonAbout {
+    text-align: center;
+}
+
+header, footer, .container {
+    margin:  auto;
+    border-radius: 10px;
+    max-width: 90%;
+}
+
+header, footer{
+    background-color: #67a8b2;
+    padding-bottom: 3%;
+    border: 3px solid black;
+    min-height: 5%;
+}
+
+header p {
+    float: right;
+    margin-right: 3%;
+}
+
+body {
+    background-color: #b0b7b7;
+}
+
+.crop {
+    height: auto;
+    width: 75%;
+    margin-top: 3%;
+}
+
+.container {
+    text-align: center;
+    border: 2px solid black;
+    background-color: white;
+    padding-bottom: 3%;
+    min-height:40%;
+}
+
+.container:after {
+    clear: both;
+}
+
+.button {
+    background-color: #67a8b2;
+    margin: 1% .5%;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block; 
+    color: black;
+    border-radius: 5px;
+    padding: 1% 1.5%;
+    border: 1px solid black;
+    font-size: 1.6em;
+}
+
+.top {    
+    border: 2px solid black;
+    font-size: 2.2em;
+}
+
+.button:hover {
+    background-color: #7a88a0;
+}
+
+/*Responsive design lets content define break points
+  update to a responsive design as site matures.
+  The fluid foundation and adaptive design below 
+  should minimize need for this.
+  Check by re-scaling browser so site always works. */
+/*------------------------------------
+   Media Queries
+-------------------------------------*/
+//Break point example update max-width as needed.
+@media screen and (max-width: 800px){
+
+}
+
+//IPhone 6
+@media only screen
+and(min-device-width: 768px)
+and(max-device-width: 1024px)
+and(orientation: portrait){
+
+}
+
+@media only screen
+and(min-device-width: 768px)
+and(max-device-width: 1024px)
+and(orientation: landscape){
+
+}
+
+//retina image styles
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+
+}
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>SimBoxing</title>
+        <link href="css/styles.css" type="text/css" rel="stylesheet"/>
+        <script src="js/jquery.js"></script>
+    </head>
+    
+    <header>
+            <div id="note"><p></p></div>
+            <div><h1>Simulated Boxing</h1></div>
+            <script src="js/add-content.js"></script>    </header>
+    <body>
+        <div class="container">
+            <div class="selection">
+                <button class="button top">About</button>
+                <button class="button top">Demo</button>
+            </div>
+            <div class="aboutSub">
+                <button class="button">Overview</button>
+                <button class="button">Fighter Creation</button>
+                <button class="button">Fighter Management</button>
+                <button class="button">Regions and Rankings</button>
+            </div>
+            <img src="images/boxing-main.jpg" alt="boxing pic" class="crop"/>
+        </div>
+    </body>
+    <script>
+    $('.aboutSub').hide();
+    $('.top').click(function(){
+           $('.aboutSub').toggle();
+      });
+    </script>
+    <footer>
+    
+    </footer>
+</html>
