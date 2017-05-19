@@ -1,0 +1,19 @@
+
+  <ul class="nav nav-pills">
+    <li ng-class="{ active:panel.isSelected(1)}"> 
+      <a href ng-click="panel.selectTab(1)">Information</a> 
+    </li>
+    <li ng-class="{ active:panel.isSelected(2) }"> 
+      <a href ng-click="panel.selectTab(2)">Demo</a> 
+    </li>
+  </ul>
+              
+  <div class="panel" ng-show="panel.isSelected(1)">
+    <h3>Information</h3>
+    <game-info></game-info>
+  </div>
+
+  <div class="panel text-center" ng-show="panel.isSelected(2)">
+    <p>This is a demo of the game engine with options set below.</p>
+    <button class="btn btn-lg btn-success">Run</button>
+  </div>
