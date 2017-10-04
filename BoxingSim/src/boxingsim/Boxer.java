@@ -11,12 +11,10 @@ package boxingsim;
  */
 public class Boxer {
     String name;
-    int age;
+    BoxerStyle style;
     //Fighter abilities that are visible to the player
     //Starting abilities are set by the fighter style
-    private int str; //physical strength
-    private int spd; //hand speed
-    private int agl; //footwork
+    private int str,spd, agl; //physical abilities
     private int cnd = 0; //aerobic/aerobic conditioning (must be trained from 0)
     private int ftg = 100; //fighters current fatigue level (100 fully rested)
     
@@ -40,6 +38,7 @@ public class Boxer {
     
     Boxer(String name,BoxerStyle style) {
         this.name = name;
+        this.style = style;
         switch (style) {
             case SLUGGER:
                 str = 60;
@@ -64,8 +63,6 @@ public class Boxer {
         }
     }
     
-    //
-
     public void CreateHiddens() {
         tgh = AbilityGen();
         lrn = AbilityGen();
@@ -84,6 +81,14 @@ public class Boxer {
     }
     
     //Getter and Setter Methods
+    public String GetName() {
+        return name;
+    }
+    
+    public BoxerStyle GetStyle() {
+        return style;
+    }
+    
     public int GetStr() {
         return str;
     }
