@@ -25,12 +25,21 @@ public class BoxingSim {
     public static void main(String[] args) throws IOException {
         //create a list of new boxers from data input file
         DataReader dr = new DataReader();
-        List<Boxer> boxerList = new ArrayList<Boxer>();
-        boxerList = dr.CreateBoxers();
+        DataWriter dw = new DataWriter();
+        
+        //check if boxers have been created from input file.
+        //only run boxer creation if the file is empty
+        boolean created = dw.CheckBoxers(dw.getBoxerOUT());
+        if(!created) {
+            List<Boxer> boxerList = new ArrayList<Boxer>();
+            boxerList = dr.CreateBoxers();
+            //add log that fighter creation was skipped
+        
+        //add method to datawriter to append an existing file--use FileWriter(file, true)
         
         //write output data of created fighters to file 
-        DataWriter dw = new DataWriter();
         dw.WriteBoxers(boxerList);
+        }
     }
     
 }

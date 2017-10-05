@@ -11,6 +11,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,7 +21,7 @@ import java.util.List;
 public class DataReader {
     private static final String BoxerIN =  "boxerIn.txt";
     
-    static List CreateBoxers() throws IOException {
+    public static List CreateBoxers() throws IOException {
         String name;
         String thisLine;
         String boxer[];
@@ -30,14 +32,16 @@ public class DataReader {
         try(
             BufferedReader br =
                     Files.newBufferedReader(Paths.get(BoxerIN))){
-           while((thisLine = br.readLine()) != null) {
+            //add method to check for duplicate names before creating
+            while((thisLine = br.readLine()) != null) {
                boxer = thisLine.split(";");
                name = boxer[0];
                style = Style.valueOf(boxer[1]);
                boxerList.add(new Boxer(name, style));
-           }
+            }
            
         }
         return boxerList;
     }
+    
 }
