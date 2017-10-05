@@ -11,7 +11,7 @@ package boxingsim;
  */
 public class Boxer {
     String name;
-    BoxerStyle style;
+    Style style;
     //Fighter abilities that are visible to the player
     //Starting abilities are set by the fighter style
     private int str,spd, agl; //physical abilities
@@ -21,22 +21,16 @@ public class Boxer {
     //Hidden abilities common to all fighters. Expand on these over time.
     //Add unique hiddens for sub-classes
     private int tgh; //fighter toughness, ability to withstand KOs and take damage
-    private int lrn; //fighters general intelligence and learning speed
     private int pwr; //punching power effects stun/KO
-    private int chn; //ability to take punches, effects stun/KO
     
     //Sub classes will have learnable skills unique to that class
 
     //Look into using an enum for the different types of boxers
     //build can be created using a selection associated with the enum
-    {
+     
+    Boxer(String name, Style style) {
         CreateHiddens();
         CreateAbilities();
-    }
-    
-    Boxer(){ }
-    
-    Boxer(String name,BoxerStyle style) {
         this.name = name;
         this.style = style;
         switch (style) {
@@ -58,16 +52,14 @@ public class Boxer {
             case ROPIST:
                 str = 30;
                 spd = 30;
-                agl = 30;
+                agl = 60;
                 break;
         }
     }
     
     public void CreateHiddens() {
         tgh = AbilityGen();
-        lrn = AbilityGen();
         pwr = AbilityGen();
-        chn = AbilityGen();
     }
     
     public void CreateAbilities() {
@@ -75,7 +67,7 @@ public class Boxer {
     }
     
     public int AbilityGen() {
-        int rand = (int)Math.random()*100;
+        int rand = (int)(Math.random()*100);
         
         return rand;
     }
@@ -85,7 +77,7 @@ public class Boxer {
         return name;
     }
     
-    public BoxerStyle GetStyle() {
+    public Style GetStyle() {
         return style;
     }
     
@@ -113,15 +105,8 @@ public class Boxer {
         return tgh;
     }
     
-    public int GetLrn() {
-        return lrn;
-    }
-    
     public int GetPwr() {
         return pwr;
-    }
-    public int GetChn() {
-        return chn;
     }
     
     public void SetStr(int str) {
@@ -148,15 +133,8 @@ public class Boxer {
         this.tgh = tgh;
     }
     
-    public void SetLrn() {
-        this.lrn = lrn;
-    }
-    
     public void SetPwr() {
         this.pwr = pwr;
-    }
-    public void SetChn() {
-        this.chn = chn;
     }
     
 }

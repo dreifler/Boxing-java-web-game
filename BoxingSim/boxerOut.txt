@@ -1,0 +1,5 @@
+Name      Style     Str Spd Agl 
+Jim       SLUGGER   60  30  30  
+Tom       DANCER    30  60  30  
+Alf       BALANCED  40  40  40  
+Joe       ROPIST    30  30  60  
