@@ -1,5 +1,7 @@
 Name      Style     Str Spd Agl 
 Jim       SLUGGER   60  30  30  
-Tom       DANCER    30  60  30  
-Alf       BALANCED  40  40  40  
+Tom       SLUGGER   60  30  30  
 Joe       ROPIST    30  30  60  
+Alf       BALANCED  40  40  40  
+Ted       BALANCED  40  40  40  
+Tim       DANCER    30  60  30  

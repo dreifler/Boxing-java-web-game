@@ -6,7 +6,11 @@
 package boxingsim;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  *
@@ -22,18 +26,14 @@ public class BoxingSim {
         //Boxer creation from data file
         DataReader dr = new DataReader();
         DataWriter dw = new DataWriter();
-        
-        boolean created = dw.CheckBoxers(dw.getBoxerOUT());
-        if(!created) {
-            List<Boxer> boxerList;
-            boxerList = dr.CreateBoxers();
-            //add log that fighter creation was skipped
+       
+        Set<Boxer> boxerSet = new HashSet<Boxer>();
+        boxerSet = dr.CreateBoxers();
         
         //add method to datawriter to append an existing file--use FileWriter(file, true)
         
         //write data to files both for output(visible stats) and storage(all stats)
-        dw.WriteBoxers(boxerList);
-        }
+        dw.WriteBoxers(boxerSet);
     }
     
 }

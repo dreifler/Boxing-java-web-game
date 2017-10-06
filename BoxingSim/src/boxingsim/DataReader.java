@@ -9,8 +9,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -18,41 +18,27 @@ import java.util.List;
  */
 public class DataReader {
     private static final String BoxerIN =  "boxerIn.txt";
-    private List<Boxer> boxerList = new ArrayList<>();
+    private Set<Boxer> boxerSet = new HashSet<Boxer>();
     
-    public List CreateBoxers() throws IOException {
+    public Set CreateBoxers() throws IOException {
         String name;
         String thisLine;
         String boxer[];
         Style style;
-        boolean dup;
         
         try(
             BufferedReader br =
                     Files.newBufferedReader(Paths.get(BoxerIN))){
-            //add method to check for duplicate names before creating
+            //SortedMap mapping boxer object to names
             while((thisLine = br.readLine()) != null) {
                boxer = thisLine.split(";");
                name = boxer[0];
                style = Style.valueOf(boxer[1]);
-               dup = Duplicate(name);
-               if (!dup)
-                    boxerList.add(new Boxer(name, style));
+               boxerSet.add(new Boxer(name, style));
             }
            
         }
-        return boxerList;
+        return boxerSet;
     }
     
-    //improve this search method with sort and binary search
-    private boolean Duplicate(String name) {
-        boolean dup = false;
-        
-        for(int i = 0; i < boxerList.size();i++) {
-            if (boxerList.get(i).name == name)
-                return true;
-        }
-        
-        return dup;
-    }
 }
