@@ -9,7 +9,7 @@ package boxingsim;
  *
  * @author darrenreifler
  */
-public class Boxer {
+public class Boxer implements Fighter {
     String name;
     Style style;
     //Fighter abilities that are visible to the player
@@ -49,23 +49,21 @@ public class Boxer {
                 spd = 40;
                 agl = 40;
                 break;
-            case ROPIST:
-                str = 30;
-                spd = 30;
-                agl = 60;
-                break;
         }
     }
     
+    @Override
     public void CreateHiddens() {
         tgh = AbilityGen();
         pwr = AbilityGen();
     }
     
+    @Override
     public void CreateAbilities() {
         
     }
     
+    @Override
     public int AbilityGen() {
         int rand = (int)(Math.random()*100);
         
@@ -73,66 +71,82 @@ public class Boxer {
     }
     
     //Getter and Setter Methods
+    @Override
     public String GetName() {
         return name;
     }
     
+    @Override
     public Style GetStyle() {
         return style;
     }
     
+    @Override
     public int GetStr() {
         return str;
     }
     
+    @Override
     public int GetSpd() {
         return spd;
     }
     
+    @Override
     public int GetAgl() {
         return agl;
     }
     
+    @Override
     public int GetCnd() {
         return cnd;
     }
     
+    @Override
     public int GetFtg() {
         return ftg;
     }
     
+    @Override
     public int GetTgh() {
         return tgh;
     }
     
+    @Override
     public int GetPwr() {
         return pwr;
     }
     
+    @Override
     public void SetStr(int str) {
         this.str = str;
     }
     
+    @Override
     public void SetSpd(int spd) {
         this.spd = spd;
     }
     
+    @Override
     public void SetAgl(int agl) {
         this.agl = agl;
     }
     
+    @Override
     public void SetCnd(int cnd) {
         this.cnd = cnd;
     }
     
+    @Override
     public void SetFtg(int ftg) {
         this.ftg = ftg;
     }
     
+    @Override
     public void SetTgh() {
         this.tgh = tgh;
     }
     
+    @Override
     public void SetPwr() {
         this.pwr = pwr;
     }

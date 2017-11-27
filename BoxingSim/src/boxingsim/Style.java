@@ -10,5 +10,5 @@ package boxingsim;
  * @author darrenreifler
  */
 enum Style {
-    SLUGGER, DANCER, BALANCED, ROPIST
+    SLUGGER, DANCER, BALANCED
 }
