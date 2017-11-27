@@ -10,8 +10,8 @@ package boxingsim;
  * @author darrenreifler
  */
 public class Boxer implements Fighter {
-    String name;
-    Style style;
+    private String name;
+    private Style style;
     //Fighter abilities that are visible to the player
     //Starting abilities are set by the fighter style
     private int str,spd, agl; //physical abilities

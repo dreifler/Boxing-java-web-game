@@ -11,4 +11,6 @@ package boxingsim;
  */
 public interface Simulation {
     
+    void fightSim(Fighter f1, Fighter f2);
+    
 }
