@@ -9,7 +9,7 @@ package boxingsim;
  *
  * @author darrenreifler
  */
-public class Boxer implements Fighter {
+public class Boxer implements IFighter {
     private String name;
     private Style style;
     //Fighter abilities that are visible to the player
@@ -23,33 +23,20 @@ public class Boxer implements Fighter {
     private int tgh; //fighter toughness, ability to withstand KOs and take damage
     private int pwr; //punching power effects stun/KO
     
+    //Variables for use during fight sim
+    private int agg, def;
+    private IFighter opponent;
+    
     //Sub classes will have learnable skills unique to that class
 
     //Look into using an enum for the different types of boxers
     //build can be created using a selection associated with the enum
      
     Boxer(String name, Style style) {
-        CreateHiddens();
-        CreateAbilities();
         this.name = name;
         this.style = style;
-        switch (style) {
-            case SLUGGER:
-                str = 60;
-                spd = 30;
-                agl = 30;
-                break;
-            case DANCER:
-                str = 30;
-                spd = 60;
-                agl = 30;
-                break;
-            case BALANCED:
-                str = 40;
-                spd = 40;
-                agl = 40;
-                break;
-        }
+        CreateAbilities();
+        CreateHiddens();
     }
     
     @Override
@@ -60,7 +47,23 @@ public class Boxer implements Fighter {
     
     @Override
     public void CreateAbilities() {
-        
+        switch (this.style) {
+            case SLUGGER:
+                this.str = 60;
+                this.spd = 30;
+                this.agl = 30;
+                break;
+            case DANCER:
+                this.str = 30;
+                this.spd = 60;
+                this.agl = 30;
+                break;
+            case BALANCED:
+                this.str = 40;
+                this.spd = 40;
+                this.agl = 40;
+                break;
+        }
     }
     
     @Override
@@ -117,6 +120,21 @@ public class Boxer implements Fighter {
     }
     
     @Override
+    public int GetAgg() {
+       return agg;
+    }
+    
+    @Override
+    public int GetDef() {
+        return def;
+    }
+
+    @Override
+    public IFighter GetOpponent() {
+        return opponent;
+    }
+    
+    @Override
     public void SetStr(int str) {
         this.str = str;
     }
@@ -149,6 +167,25 @@ public class Boxer implements Fighter {
     @Override
     public void SetPwr() {
         this.pwr = pwr;
+    }
+    
+    @Override
+    public void SetAgg(int agg) {
+        this.agg = agg;
+    }
+
+    @Override
+    public void SetDef(int def) {
+        this.def = def;
+    }
+
+    public void SetOpponent(Boxer boxer) {
+        this.opponent = boxer;
+    }
+
+    @Override
+    public void SetOpponent(IFighter opp) {
+        this.opponent = opp;
     }
     
 }

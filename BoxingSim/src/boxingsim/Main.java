@@ -90,7 +90,7 @@ public class Main {
             System.out.println("Boxer already exists.");
     }
     
-    public static void displayFighters() {
+    public static void displayFighters() {       
         Iterator it = boxerSet.iterator();
         Boxer boxer;
         StringBuilder line = new StringBuilder();
@@ -113,13 +113,16 @@ public class Main {
     }
     
     public static void manualFight(){
-        Boxer b1, b2, temp;
-        Simulation sim = new BoxingSim();
+        Boxer b1, b2;
+        ISimulation sim = new BoxingSim();
         
         b1 = boxerSelect(1);
         b2 = boxerSelect(2);
 
         sim.fightSim(b1, b2);
+        System.out.println("\n===================================");
+        System.out.println("Now fighting, " + sim.GetF1() + " vs. " + sim.GetF2());
+        System.out.println("===================================\n");   
     }
     
     public static Boxer boxerSelect(int i){

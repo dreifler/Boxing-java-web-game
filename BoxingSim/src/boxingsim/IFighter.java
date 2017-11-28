@@ -9,7 +9,7 @@ package boxingsim;
  *
  * @author darrenreifler
  */
-public interface Fighter {
+public interface IFighter {
 
     int AbilityGen();
 
@@ -17,13 +17,19 @@ public interface Fighter {
 
     void CreateHiddens();
 
+    int GetAgg();
+
     int GetAgl();
 
     int GetCnd();
 
+    int GetDef();
+
     int GetFtg();
 
     String GetName();
+
+    IFighter GetOpponent();
 
     int GetPwr();
 
@@ -35,11 +41,17 @@ public interface Fighter {
 
     int GetTgh();
 
+    void SetAgg(int agg);
+
     void SetAgl(int agl);
 
     void SetCnd(int cnd);
 
+    void SetDef(int def);
+
     void SetFtg(int ftg);
+
+    void SetOpponent(IFighter opp);
 
     void SetPwr();
 

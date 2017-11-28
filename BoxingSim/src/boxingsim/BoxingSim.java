@@ -9,13 +9,55 @@ package boxingsim;
  *
  * @author darrenreifler
  */
-public class BoxingSim implements Simulation{
+public class BoxingSim implements ISimulation{
+    private IFighter f1, f2;
+    
+    @Override
+    public void fightSim(IFighter f1, IFighter f2) {
+        this.f1 = f1;
+        this.f2 = f2;
+    }
 
     @Override
-    public void fightSim(Fighter f1, Fighter f2) {
-        System.out.println("\n============================");
-        System.out.println("Now fighting, " + f1.GetName() + " vs " + f2.GetName());
-        System.out.println("============================\n");
+    public void setf1Strategy(IFighter f1, int agg, int def) {
+        this.f1.SetAgg(agg);
+        this.f1.SetDef(def);
     }
+    
+    @Override
+    public void setf2Strategy(IFighter f2, int agg, int def) {
+        this.f2.SetAgg(agg);
+        this.f2.SetDef(def);
+    }
+
+    @Override
+    public Action selectAction() {
+       Action action = Action.DEFEND;
+       
+       
+        
+       return action;
+    }
+
+    @Override
+    public boolean landed() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IFighter rest(IFighter f1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IFighter GetF1() {
+        return f1;
+    }
+
+    @Override
+    public IFighter GetF2() {
+        return f2;
+    }
+    
     
 }
