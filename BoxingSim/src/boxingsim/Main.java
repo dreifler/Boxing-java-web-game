@@ -138,13 +138,17 @@ public class Main {
         int actions = 0;
         int round = 1;
         
+        //Set up fight matchup
         b1 = boxerSelect(1);
         b2 = boxerSelect(2);
-
         sim.fightSim(b1, b2);
-        System.out.println("\n===================================");
-        System.out.println("Now fighting, " + sim.GetF1().GetName() + " vs. " + sim.GetF2().GetName());
-        System.out.println("===================================\n");
+        
+        //begin logging results in file
+        dw.clearResult();
+        dw.addResult("\n===================================");
+        dw.addResult("Now fighting, " + sim.GetF1().GetName() + " vs. " + sim.GetF2().GetName());
+        dw.addResult("===================================\n");
+        
         while(!finished) {
             sim.GetF1().selectAction();
             sim.GetF2().selectAction(); 
@@ -156,22 +160,22 @@ public class Main {
         //Print fight results to file
             switch(sim.GetF1().getCurrent()){
                 case PUNCH:
-                    System.out.println(actions + "..." + sim.GetF1().GetName() + " landed a punch.");
+                    dw.addResult(actions + "..." + sim.GetF1().GetName() + " landed a punch.");
                         sim.GetF1().selectAction();
                     break;
                 case DEFEND:
-                    System.out.println(actions + "..." + sim.GetF1().GetName() + " is defending.");
+                    dw.addResult(actions + "..." + sim.GetF1().GetName() + " is defending.");
                         sim.GetF1().selectAction();
                     break;
             }
             
             switch(sim.GetF2().getCurrent()){
                 case PUNCH:
-                    System.out.println(actions + "..." + sim.GetF2().GetName() + " landed a punch.");
+                    dw.addResult(actions + "..." + sim.GetF2().GetName() + " landed a punch.");
                         sim.GetF2().selectAction();
                     break;
                 case DEFEND:
-                    System.out.println(actions + "..." + sim.GetF2().GetName() + " is defending.");
+                    dw.addResult(actions + "..." + sim.GetF2().GetName() + " is defending.");
                         sim.GetF2().selectAction();
                     break;
             }
@@ -179,13 +183,13 @@ public class Main {
             actions++;
             if(actions == 180){
                 actions = 0;
-                System.out.println("----End of Round----");
+                dw.addResult("----End of Round----");
                 round++;
             }
             if(round == 4)
                 finished = true;
         }
-        System.out.println("=====End of Fight.=====");
+        System.out.println("=====Fight Simulation Complete.=====");
     }
     
     public static Boxer boxerSelect(int i){
