@@ -25,6 +25,7 @@ public class DataReader {
         String thisLine;
         String boxer[];
         Style style;
+        this.boxerSet.clear();
         
         try(
             BufferedReader br =
@@ -34,11 +35,11 @@ public class DataReader {
                boxer = thisLine.split(";");
                name = boxer[0];
                style = Style.valueOf(boxer[1]);
-               boxerSet.add(new Boxer(name, style));
+               this.boxerSet.add(new Boxer(name, style));
             }
            
         }
-        return boxerSet;
+        return this.boxerSet;
     }
     
 }

@@ -17,10 +17,6 @@ public interface ISimulation {
     
     void setf2Strategy(IFighter f2, int agg, int def);
     
-    Action selectAction();
-    
-    boolean landed();
-    
     IFighter rest(IFighter f1);
     
     IFighter GetF1();

@@ -26,6 +26,7 @@ public class Boxer implements IFighter {
     //Variables for use during fight sim
     private int agg, def;
     private IFighter opponent;
+    private Action cAction;
     
     //Sub classes will have learnable skills unique to that class
 
@@ -135,6 +136,11 @@ public class Boxer implements IFighter {
     }
     
     @Override
+    public Action getCurrent() {
+        return cAction;
+    }
+    
+    @Override
     public void SetStr(int str) {
         this.str = str;
     }
@@ -187,5 +193,24 @@ public class Boxer implements IFighter {
     public void SetOpponent(IFighter opp) {
         this.opponent = opp;
     }
+
+    @Override
+    public void selectAction() {
+             double punch;
+       
+       punch = Math.random()*100;
+       if(punch < GetAgg()*10)
+           cAction = Action.PUNCH;
+       else cAction = Action.DEFEND;
+    }
+
+    @Override
+    public boolean landed() {
+        if((GetSpd()*Math.random() - GetOpponent().GetDef()*Math.random()) > 0)
+            return true;
+        else return false;
+    }
+
+
     
 }

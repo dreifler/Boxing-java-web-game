@@ -16,6 +16,8 @@ public class BoxingSim implements ISimulation{
     public void fightSim(IFighter f1, IFighter f2) {
         this.f1 = f1;
         this.f2 = f2;
+        this.f1.SetOpponent(f2);
+        this.f2.SetOpponent(f1);
     }
 
     @Override
@@ -28,20 +30,6 @@ public class BoxingSim implements ISimulation{
     public void setf2Strategy(IFighter f2, int agg, int def) {
         this.f2.SetAgg(agg);
         this.f2.SetDef(def);
-    }
-
-    @Override
-    public Action selectAction() {
-       Action action = Action.DEFEND;
-       
-       
-        
-       return action;
-    }
-
-    @Override
-    public boolean landed() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

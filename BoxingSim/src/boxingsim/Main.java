@@ -35,9 +35,11 @@ public class Main {
                 break;
             case 2: addBoxer();
                 break;
-            case 3: displayFighters();
+            case 3: deleteBoxer();
                 break;
-            case 4: manualFight();
+            case 4: displayFighters();
+                break;
+            case 5: manualFight();
                 break;
         }
     }
@@ -48,8 +50,9 @@ public class Main {
         System.out.println("Enter Number to Select Option:");
         System.out.println("1: Create/Re-create fighters.");
         System.out.println("2: Add a new fighter (manual).");
-        System.out.println("3: Display all fighters");
-        System.out.println("4: Practice fight(manual match-up).");
+        System.out.println("3: Delete a fighter.");
+        System.out.println("4: Display all fighters");
+        System.out.println("5: Practice fight(manual match-up).");
         System.out.println("0: Exit");
         System.out.print("Selection: ");
         
@@ -81,13 +84,29 @@ public class Main {
             default: style = style.BALANCED;
                     break;
         } 
-        System.out.println("Creating new fighter " + name + " with style " + style.toString());
+        System.out.println("\nCreating new fighter " + name + " with style " + style.toString() + "\n");
         
         Boxer newBoxer = new Boxer(name, style);
-        if(boxerSet.add(newBoxer))
+        if(boxerSet.add(newBoxer)){
             dw.addBoxer(newBoxer);
+        }
         else
             System.out.println("Boxer already exists.");
+    }
+    
+    public static void deleteBoxer(){
+        String name;
+        
+        System.out.print("Enter boxer name to delete: ");
+        name = scanner.nextLine();
+        
+        if(findBoxer(name) != null){
+            boxerSet.remove(findBoxer(name));
+            System.out.println("\nDeleted " + name +"\n");
+        } else {
+            System.out.println("\nUnable to locate boxer.\n");
+        }
+         
     }
     
     public static void displayFighters() {       
@@ -115,14 +134,58 @@ public class Main {
     public static void manualFight(){
         Boxer b1, b2;
         ISimulation sim = new BoxingSim();
+        boolean finished = false;
+        int actions = 0;
+        int round = 1;
         
         b1 = boxerSelect(1);
         b2 = boxerSelect(2);
 
         sim.fightSim(b1, b2);
         System.out.println("\n===================================");
-        System.out.println("Now fighting, " + sim.GetF1() + " vs. " + sim.GetF2());
-        System.out.println("===================================\n");   
+        System.out.println("Now fighting, " + sim.GetF1().GetName() + " vs. " + sim.GetF2().GetName());
+        System.out.println("===================================\n");
+        while(!finished) {
+            sim.GetF1().selectAction();
+            sim.GetF2().selectAction(); 
+        //Hardcode of aggression only to test
+        //Add input of fighter strategy
+            sim.GetF1().SetAgg(3);
+            sim.GetF2().SetAgg(8);
+        
+        //Print fight results to file
+            switch(sim.GetF1().getCurrent()){
+                case PUNCH:
+                    System.out.println(actions + "..." + sim.GetF1().GetName() + " landed a punch.");
+                        sim.GetF1().selectAction();
+                    break;
+                case DEFEND:
+                    System.out.println(actions + "..." + sim.GetF1().GetName() + " is defending.");
+                        sim.GetF1().selectAction();
+                    break;
+            }
+            
+            switch(sim.GetF2().getCurrent()){
+                case PUNCH:
+                    System.out.println(actions + "..." + sim.GetF2().GetName() + " landed a punch.");
+                        sim.GetF2().selectAction();
+                    break;
+                case DEFEND:
+                    System.out.println(actions + "..." + sim.GetF2().GetName() + " is defending.");
+                        sim.GetF2().selectAction();
+                    break;
+            }
+                
+            actions++;
+            if(actions == 180){
+                actions = 0;
+                System.out.println("----End of Round----");
+                round++;
+            }
+            if(round == 4)
+                finished = true;
+        }
+        System.out.println("=====End of Fight.=====");
     }
     
     public static Boxer boxerSelect(int i){

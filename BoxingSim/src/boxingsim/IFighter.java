@@ -40,6 +40,8 @@ public interface IFighter {
     Style GetStyle();
 
     int GetTgh();
+    
+    Action getCurrent();
 
     void SetAgg(int agg);
 
@@ -60,5 +62,9 @@ public interface IFighter {
     void SetStr(int str);
 
     void SetTgh();
+    
+    void selectAction();
+    
+    boolean landed();
     
 }
