@@ -5,15 +5,14 @@
  */
 package boxingsim;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -44,8 +43,8 @@ public class DataWriter {
             
             while(it.hasNext()){
                 boxer = (Boxer)it.next();
-                line.append(String.format("%-10s", boxer.name));
-                line.append(String.format("%-10s", boxer.style));
+                line.append(String.format("%-10s", boxer.GetName()));
+                line.append(String.format("%-10s", boxer.GetStyle()));
                 line.append(String.format("%-4s", boxer.GetStr()));
                 line.append(String.format("%-4s", boxer.GetSpd()));
                 line.append(String.format("%-4s", boxer.GetAgl()));
@@ -54,10 +53,10 @@ public class DataWriter {
                 line.delete(0,100);
             }
         } catch (IOException ex) {
-            Logger.getLogger(BoxingSim.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        //writes as a data file for storing created fighters for 
+        //writes as a data file for storing created fighters
          try(
             BufferedWriter bwd = 
                     Files.newBufferedWriter(Paths.get(BoxerDATA))) { 
@@ -67,8 +66,8 @@ public class DataWriter {
             it = boxerSet.iterator();
             while(it.hasNext()){
                 boxer = (Boxer)it.next();
-                line.append(boxer.name);
-                line.append(";").append(boxer.style);
+                line.append(boxer.GetName());
+                line.append(";").append(boxer.GetStyle());
                 line.append(";").append(boxer.GetStr());
                 line.append(";").append(boxer.GetSpd());
                 line.append(";").append(boxer.GetAgl());
@@ -81,11 +80,44 @@ public class DataWriter {
                 line.delete(0,100);
             }
         } catch (IOException ex) {
-            Logger.getLogger(BoxingSim.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     public String getBoxerOUT() {
         return BoxerOUT;
     }
+    
+    public void addBoxer(Boxer boxer) {
+        StringBuilder line = new StringBuilder(40);
+        
+        //Writing boxers as viewable output for sending to GUI
+        try(Writer fw = new FileWriter(BoxerOUT, true)) {       
+            line.append(String.format("%-10s", boxer.GetName()));
+            line.append(String.format("%-10s", boxer.GetStyle()));
+            line.append(String.format("%-4s", boxer.GetStr()));
+            line.append(String.format("%-4s", boxer.GetSpd()));
+            line.append(String.format("%-4s", boxer.GetAgl()));
+            fw.write(line.toString());        
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //writes as a data file for storing created fighters
+       try(Writer fwd = new FileWriter(BoxerDATA, true)) { 
+            line.append(boxer.GetName());
+            line.append(";").append(boxer.GetStyle());
+            line.append(";").append(boxer.GetStr());
+            line.append(";").append(boxer.GetSpd());
+            line.append(";").append(boxer.GetAgl());
+            line.append(";").append(boxer.GetFtg());
+            line.append(";").append(boxer.GetCnd());
+            line.append(";").append(boxer.GetTgh());
+            line.append(";").append(boxer.GetPwr());
+            fwd.write(line.toString());
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+    }
+    
 }

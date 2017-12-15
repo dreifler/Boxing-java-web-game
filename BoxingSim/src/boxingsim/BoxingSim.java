@@ -5,35 +5,59 @@
  */
 package boxingsim;
 
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 /**
  *
  * @author darrenreifler
  */
-public class BoxingSim {
-
-    /**
-     * @param args the command line arguments
-     */
-    //add loggers for each main step in process
-    public static void main(String[] args) throws IOException{
-        //Boxer creation from data file
-        DataReader dr = new DataReader();
-        DataWriter dw = new DataWriter();
-       
-        Set<Boxer> boxerSet = new HashSet<Boxer>();
-        boxerSet = dr.CreateBoxers();
-        
-        //add method to datawriter to append an existing file--use FileWriter(file, true)
-        
-        //write data to files both for output(visible stats) and storage(all stats)
-        dw.WriteBoxers(boxerSet);
+public class BoxingSim implements ISimulation{
+    private IFighter f1, f2;
+    
+    @Override
+    public void fightSim(IFighter f1, IFighter f2) {
+        this.f1 = f1;
+        this.f2 = f2;
     }
+
+    @Override
+    public void setf1Strategy(IFighter f1, int agg, int def) {
+        this.f1.SetAgg(agg);
+        this.f1.SetDef(def);
+    }
+    
+    @Override
+    public void setf2Strategy(IFighter f2, int agg, int def) {
+        this.f2.SetAgg(agg);
+        this.f2.SetDef(def);
+    }
+
+    @Override
+    public Action selectAction() {
+       Action action = Action.DEFEND;
+       
+       
+        
+       return action;
+    }
+
+    @Override
+    public boolean landed() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IFighter rest(IFighter f1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public IFighter GetF1() {
+        return f1;
+    }
+
+    @Override
+    public IFighter GetF2() {
+        return f2;
+    }
+    
     
 }
