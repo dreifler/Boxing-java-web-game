@@ -11,55 +11,80 @@ package boxingsim;
  */
 public interface Boxertemp extends IFighter {
 
-    int AbilityGen();
+    @Override
+	int AbilityGen();
 
-    void CreateAbilities();
+    @Override
+	void CreateAbilities();
 
-    void CreateHiddens();
+    @Override
+	void CreateHiddens();
 
-    int GetAgg();
+    @Override
+	int GetAgg();
 
-    int GetAgl();
+    @Override
+	int GetAgl();
 
-    int GetCnd();
+    @Override
+	int GetCnd();
 
-    int GetDef();
+    @Override
+	int GetDef();
 
-    int GetFtg();
+    @Override
+	int GetFtg();
 
     //Getter and Setter Methods
-    String GetName();
+    @Override
+	String GetName();
 
-    IFighter GetOpponent();
+    @Override
+	IFighter GetOpponent();
 
-    int GetPwr();
+    @Override
+	int GetPwr();
 
-    int GetSpd();
+    @Override
+	int GetSpd();
 
-    int GetStr();
+    @Override
+	int GetStr();
 
-    Style GetStyle();
+    @Override
+	Style GetStyle();
 
-    int GetTgh();
+    @Override
+	int GetTgh();
 
-    void SetAgg(int agg);
+    @Override
+	void SetAgg(int agg);
 
-    void SetAgl(int agl);
+    @Override
+	void SetAgl(int agl);
 
-    void SetCnd(int cnd);
+    @Override
+	void SetCnd(int cnd);
 
-    void SetDef(int def);
+    @Override
+	void SetDef(int def);
 
-    void SetFtg(int ftg);
+    @Override
+	void SetFtg(int ftg);
 
-    void SetOpponent(IFighter opp);
+    @Override
+	void SetOpponent(IFighter opp);
 
-    void SetPwr();
+    @Override
+	void SetPwr();
 
-    void SetSpd(int spd);
+    @Override
+	void SetSpd(int spd);
 
-    void SetStr(int str);
+    @Override
+	void SetStr(int str);
 
-    void SetTgh();
+    @Override
+	void SetTgh();
     
 }

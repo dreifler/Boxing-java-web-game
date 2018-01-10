@@ -75,13 +75,13 @@ public class Main {
         scanner.nextLine();
         
         switch(choice) {
-            case 1: style = style.SLUGGER;
+            case 1: style = Style.SLUGGER;
                     break;
-            case 2: style = style.DANCER;
+            case 2: style = Style.DANCER;
                     break;
-            case 3: style = style.BALANCED;
+            case 3: style = Style.BALANCED;
                     break;
-            default: style = style.BALANCED;
+            default: style = Style.BALANCED;
                     break;
         } 
         System.out.println("\nCreating new fighter " + name + " with style " + style.toString() + "\n");
