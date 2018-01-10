@@ -1,0 +1,11 @@
+CREATE DATABASE `boxing` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+CREATE TABLE `Boxers` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `Str` int(11) DEFAULT NULL,
+  `Spd` int(11) DEFAULT NULL,
+  `Agl` int(11) DEFAULT NULL,
+  `Cond` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
