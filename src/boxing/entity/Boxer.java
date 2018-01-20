@@ -27,9 +27,7 @@ import boxingsim.Style;
 public class Boxer implements IFighter {
 	@Transient
     private Style style;
-	@Transient
-    private Action cAction;
-    
+	 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID", unique=true, nullable=false)
@@ -54,6 +52,10 @@ public class Boxer implements IFighter {
     private int agg;  
 	@Transient
     private int def;
+	@Transient
+    private IFighter opponent;
+	@Transient
+    private Action cAction;
     
     //Sub classes will have learnable skills unique to that class
 
@@ -96,8 +98,6 @@ public class Boxer implements IFighter {
     }
     
     //Getter and Setter Methods
- 
-
     public int GetID(){
     		return ID;
     }
@@ -151,6 +151,11 @@ public class Boxer implements IFighter {
     }
     
     @Override
+    public IFighter GetOpponent() {
+        return opponent;
+    }
+    
+    @Override
     public void SetStr(int str) {
         this.str = str;
     }
@@ -181,6 +186,10 @@ public class Boxer implements IFighter {
     public void SetDef(int def) {
         this.def = def;
     }
+    
+    public void SetOpponent(IFighter boxer) {
+        this.opponent = boxer;
+    }
 
     @Override
     public void selectAction() {
@@ -192,29 +201,17 @@ public class Boxer implements IFighter {
        else cAction = Action.DEFEND;
     }
 
-
+	@Override
+	public boolean landed() {
+		if((GetSpd()*Math.random() - GetOpponent().GetDef()*Math.random()) > 0)
+            return true;
+        else return false;
+	}
+	
 	@Override
 	public String toString() {
 		return "Boxer [style=" + style + ", ID=" + ID + ", name=" + name + ", str=" + str + ", spd=" + spd + ", agl="
-				+ agl + ", cnd=" + cnd + ", ftg=" + "]";
+				+ agl + ", cnd=" + cnd + "]";
 	}
 
-	@Override
-	public boolean landed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void SetOpponent(IFighter opp) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public IFighter GetOpponent() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-    
 }
