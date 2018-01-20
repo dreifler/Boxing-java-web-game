@@ -9,6 +9,6 @@ package boxingsim;
  *
  * @author darrenreifler
  */
-enum Style {
+public enum Style {
     SLUGGER, DANCER, BALANCED
 }

@@ -16,6 +16,8 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import boxing.entity.Boxer;
+
 /**
  *
  * @author darrenreifler
@@ -73,10 +75,7 @@ public class DataWriter {
                 line.append(";").append(boxer.GetStr());
                 line.append(";").append(boxer.GetSpd());
                 line.append(";").append(boxer.GetAgl());
-                line.append(";").append(boxer.GetFtg());
                 line.append(";").append(boxer.GetCnd());
-                line.append(";").append(boxer.GetTgh());
-                line.append(";").append(boxer.GetPwr());
                 bwd.append(line.toString());
                 bwd.newLine();
                 line.delete(0,100);
@@ -116,10 +115,7 @@ public class DataWriter {
             line.append(";").append(boxer.GetStr());
             line.append(";").append(boxer.GetSpd());
             line.append(";").append(boxer.GetAgl());
-            line.append(";").append(boxer.GetFtg());
             line.append(";").append(boxer.GetCnd());
-            line.append(";").append(boxer.GetTgh());
-            line.append(";").append(boxer.GetPwr());
             fwd.write(line.toString());
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

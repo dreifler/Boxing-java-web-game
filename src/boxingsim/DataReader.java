@@ -12,6 +12,8 @@ import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 
+import boxing.entity.Boxer;
+
 /**
  *
  * @author darrenreifler

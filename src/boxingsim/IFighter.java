@@ -15,8 +15,6 @@ public interface IFighter {
 
     void CreateAbilities();
 
-    void CreateHiddens();
-
     int GetAgg();
 
     int GetAgl();
@@ -25,21 +23,13 @@ public interface IFighter {
 
     int GetDef();
 
-    int GetFtg();
-
     String GetName();
-
-    IFighter GetOpponent();
-
-    int GetPwr();
 
     int GetSpd();
 
     int GetStr();
 
     Style GetStyle();
-
-    int GetTgh();
     
     Action getCurrent();
 
@@ -51,20 +41,18 @@ public interface IFighter {
 
     void SetDef(int def);
 
-    void SetFtg(int ftg);
-
-    void SetOpponent(IFighter opp);
-
-    void SetPwr();
-
     void SetSpd(int spd);
 
     void SetStr(int str);
-
-    void SetTgh();
     
     void selectAction();
     
     boolean landed();
+
+	void SetOpponent(IFighter opp);
+
+	IFighter GetOpponent();
+
+	int GetID();
     
 }

@@ -5,6 +5,8 @@
  */
 package boxingsim;
 
+import boxing.entity.Boxer;
+
 /**
  *
  * @author darrenreifler
