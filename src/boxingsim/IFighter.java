@@ -15,44 +15,44 @@ public interface IFighter {
 
     void CreateAbilities();
 
-    int GetAgg();
+    int getAgg();
 
-    int GetAgl();
+    int getAgl();
 
-    int GetCnd();
+    int getCnd();
 
-    int GetDef();
+    int getDef();
 
-    String GetName();
+    String getName();
 
-    int GetSpd();
+    int getSpd();
 
-    int GetStr();
+    int getStr();
 
-    Style GetStyle();
+    Style getStyle();
     
     Action getCurrent();
 
-    void SetAgg(int agg);
+    void setAgg(int agg);
 
-    void SetAgl(int agl);
+    void setAgl(int agl);
 
-    void SetCnd(int cnd);
+    void setCnd(int cnd);
 
-    void SetDef(int def);
+    void setDef(int def);
 
-    void SetSpd(int spd);
+    void setSpd(int spd);
 
-    void SetStr(int str);
+    void setStr(int str);
     
     void selectAction();
     
     boolean landed();
 
-	void SetOpponent(IFighter opp);
+	void setOpponent(IFighter opp);
 
-	IFighter GetOpponent();
+	IFighter getOpponent();
 
-	int GetID();
+	int getID();
     
 }

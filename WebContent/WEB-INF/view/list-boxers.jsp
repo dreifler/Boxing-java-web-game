@@ -26,9 +26,6 @@
 					<th>Spd</th>
 					<th>Agl</th>
 					<th>cnd</th>
-					<th>ftg</th>
-					<th>tgh</th>
-					<th>pwr</th>
 				</tr>
 				
 				<c:forEach var="tempBoxer" items="${Boxers}">

@@ -61,6 +61,10 @@ public class Boxer implements IFighter {
 
     //Look into using an enum for the different types of boxers
     //build can be created using a selection associated with the enum
+	
+	public Boxer() {
+		
+	};
      
     public Boxer(String name, Style style) {
         this.name = name;
@@ -98,50 +102,49 @@ public class Boxer implements IFighter {
     }
     
     //Getter and Setter Methods
-    public int GetID(){
+    public int getID(){
     		return ID;
     }
     
     @Override
-    public String GetName() {
+    public String getName() {
         return name;
     }
     
     @Override
-    public Style GetStyle() {
+    public Style getStyle() {
         return style;
     }
     
     @Override
-    
-    public int GetStr() {
+    public int getStr() {
         return str;
     }
     
     @Override
     
-    public int GetSpd() {
+    public int getSpd() {
         return spd;
     }
     
     @Override
    
-    public int GetAgl() {
+    public int getAgl() {
         return agl;
     }
     
     @Override
-    public int GetCnd() {
+    public int getCnd() {
         return cnd;
     }
     
     @Override
-    public int GetAgg() {
+    public int getAgg() {
        return agg;
     }
     
     @Override
-    public int GetDef() {
+    public int getDef() {
         return def;
     }
     
@@ -151,43 +154,43 @@ public class Boxer implements IFighter {
     }
     
     @Override
-    public IFighter GetOpponent() {
+    public IFighter getOpponent() {
         return opponent;
     }
     
     @Override
-    public void SetStr(int str) {
+    public void setStr(int str) {
         this.str = str;
     }
     
     @Override
-    public void SetSpd(int spd) {
+    public void setSpd(int spd) {
         this.spd = spd;
     }
     
     @Override
-    public void SetAgl(int agl) {
+    public void setAgl(int agl) {
         this.agl = agl;
     }
     
     @Override
-    public void SetCnd(int cnd) {
+    public void setCnd(int cnd) {
         this.cnd = cnd;
     }
     
     @Override
     @Column(name="agg")
-    public void SetAgg(int agg) {
+    public void setAgg(int agg) {
         this.agg = agg;
     }
 
     @Override
     @Column(name="def")
-    public void SetDef(int def) {
+    public void setDef(int def) {
         this.def = def;
     }
     
-    public void SetOpponent(IFighter boxer) {
+    public void setOpponent(IFighter boxer) {
         this.opponent = boxer;
     }
 
@@ -196,14 +199,14 @@ public class Boxer implements IFighter {
              double punch;
        
        punch = Math.random()*100;
-       if(punch < GetAgg()*10)
+       if(punch < getAgg()*10)
            cAction = Action.PUNCH;
        else cAction = Action.DEFEND;
     }
 
 	@Override
 	public boolean landed() {
-		if((GetSpd()*Math.random() - GetOpponent().GetDef()*Math.random()) > 0)
+		if((getSpd()*Math.random() - getOpponent().getDef()*Math.random()) > 0)
             return true;
         else return false;
 	}

@@ -1,3 +1,5 @@
+CREATE DATABASE `boxing` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
 CREATE TABLE `Boxers` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
@@ -7,8 +9,5 @@ CREATE TABLE `Boxers` (
   `cnd` int(3) DEFAULT '0',
   `agg` int(2) DEFAULT NULL,
   `def` int(2) DEFAULT NULL,
-  `opponent` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `OppID_idx` (`opponent`),
-  CONSTRAINT `OppID` FOREIGN KEY (`opponent`) REFERENCES `Boxers` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;

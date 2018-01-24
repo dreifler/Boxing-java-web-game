@@ -122,11 +122,11 @@ public class Main {
                 "Spd","Agl"));
         while(it.hasNext()){
             boxer = (Boxer)it.next();
-            line.append(String.format("%-10s", boxer.GetName()));
-            line.append(String.format("%-10s", boxer.GetStyle()));
-            line.append(String.format("%-4s", boxer.GetStr()));
-            line.append(String.format("%-4s", boxer.GetSpd()));
-            line.append(String.format("%-4s", boxer.GetAgl()));
+            line.append(String.format("%-10s", boxer.getName()));
+            line.append(String.format("%-10s", boxer.getStyle()));
+            line.append(String.format("%-4s", boxer.getStr()));
+            line.append(String.format("%-4s", boxer.getSpd()));
+            line.append(String.format("%-4s", boxer.getAgl()));
             System.out.println(line.toString());
             line.delete(0,100);
         }
@@ -148,7 +148,7 @@ public class Main {
         //begin logging results in file
         dw.clearResult();
         dw.addResult("\n===================================");
-        dw.addResult("Now fighting, " + sim.GetF1().GetName() + " vs. " + sim.GetF2().GetName());
+        dw.addResult("Now fighting, " + sim.GetF1().getName() + " vs. " + sim.GetF2().getName());
         dw.addResult("===================================\n");
         
         while(!finished) {
@@ -156,28 +156,28 @@ public class Main {
             sim.GetF2().selectAction(); 
         //Hardcode of aggression only to test
         //Add input of fighter strategy
-            sim.GetF1().SetAgg(3);
-            sim.GetF2().SetAgg(8);
+            sim.GetF1().setAgg(3);
+            sim.GetF2().setAgg(8);
         
         //Print fight results to file
             switch(sim.GetF1().getCurrent()){
                 case PUNCH:
-                    dw.addResult(actions + "..." + sim.GetF1().GetName() + " landed a punch.");
+                    dw.addResult(actions + "..." + sim.GetF1().getName() + " landed a punch.");
                         sim.GetF1().selectAction();
                     break;
                 case DEFEND:
-                    dw.addResult(actions + "..." + sim.GetF1().GetName() + " is defending.");
+                    dw.addResult(actions + "..." + sim.GetF1().getName() + " is defending.");
                         sim.GetF1().selectAction();
                     break;
             }
             
             switch(sim.GetF2().getCurrent()){
                 case PUNCH:
-                    dw.addResult(actions + "..." + sim.GetF2().GetName() + " landed a punch.");
+                    dw.addResult(actions + "..." + sim.GetF2().getName() + " landed a punch.");
                         sim.GetF2().selectAction();
                     break;
                 case DEFEND:
-                    dw.addResult(actions + "..." + sim.GetF2().GetName() + " is defending.");
+                    dw.addResult(actions + "..." + sim.GetF2().getName() + " is defending.");
                         sim.GetF2().selectAction();
                     break;
             }
@@ -222,7 +222,7 @@ public class Main {
         
         while(it.hasNext()) {
             boxer = (Boxer)it.next();
-            if(boxer.GetName().equals(name)){
+            if(boxer.getName().equals(name)){
                 return boxer;
             }
         }

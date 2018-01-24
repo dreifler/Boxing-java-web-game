@@ -18,20 +18,20 @@ public class BoxingSim implements ISimulation{
     public void fightSim(IFighter f1, IFighter f2) {
         this.f1 = f1;
         this.f2 = f2;
-        this.f1.SetOpponent(f2);
-        this.f2.SetOpponent(f1);
+        this.f1.setOpponent(f2);
+        this.f2.setOpponent(f1);
     }
 
     @Override
     public void setf1Strategy(IFighter f1, int agg, int def) {
-        this.f1.SetAgg(agg);
-        this.f1.SetDef(def);
+        this.f1.setAgg(agg);
+        this.f1.setDef(def);
     }
     
     @Override
     public void setf2Strategy(IFighter f2, int agg, int def) {
-        this.f2.SetAgg(agg);
-        this.f2.SetDef(def);
+        this.f2.setAgg(agg);
+        this.f2.setDef(def);
     }
 
     @Override

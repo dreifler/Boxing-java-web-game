@@ -1,1 +1,1 @@
-Index Page
+<% response.sendRedirect("boxers/list"); %>

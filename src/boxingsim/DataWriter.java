@@ -47,11 +47,11 @@ public class DataWriter {
             
             while(it.hasNext()){
                 boxer = (Boxer)it.next();
-                line.append(String.format("%-10s", boxer.GetName()));
-                line.append(String.format("%-10s", boxer.GetStyle()));
-                line.append(String.format("%-4s", boxer.GetStr()));
-                line.append(String.format("%-4s", boxer.GetSpd()));
-                line.append(String.format("%-4s", boxer.GetAgl()));
+                line.append(String.format("%-10s", boxer.getName()));
+                line.append(String.format("%-10s", boxer.getStyle()));
+                line.append(String.format("%-4s", boxer.getStr()));
+                line.append(String.format("%-4s", boxer.getSpd()));
+                line.append(String.format("%-4s", boxer.getAgl()));
                 bw.write(line.toString());
                 bw.newLine();
                 line.delete(0,100);
@@ -70,12 +70,12 @@ public class DataWriter {
             it = boxerSet.iterator();
             while(it.hasNext()){
                 boxer = (Boxer)it.next();
-                line.append(boxer.GetName());
-                line.append(";").append(boxer.GetStyle());
-                line.append(";").append(boxer.GetStr());
-                line.append(";").append(boxer.GetSpd());
-                line.append(";").append(boxer.GetAgl());
-                line.append(";").append(boxer.GetCnd());
+                line.append(boxer.getName());
+                line.append(";").append(boxer.getStyle());
+                line.append(";").append(boxer.getStr());
+                line.append(";").append(boxer.getSpd());
+                line.append(";").append(boxer.getAgl());
+                line.append(";").append(boxer.getCnd());
                 bwd.append(line.toString());
                 bwd.newLine();
                 line.delete(0,100);
@@ -98,11 +98,11 @@ public class DataWriter {
         
         //Writing boxers as formatted output
         try(Writer fw = new FileWriter(BoxerOUT, true)) {       
-            line.append(String.format("%-10s", boxer.GetName()));
-            line.append(String.format("%-10s", boxer.GetStyle()));
-            line.append(String.format("%-4s", boxer.GetStr()));
-            line.append(String.format("%-4s", boxer.GetSpd()));
-            line.append(String.format("%-4s", boxer.GetAgl()));
+            line.append(String.format("%-10s", boxer.getName()));
+            line.append(String.format("%-10s", boxer.getStyle()));
+            line.append(String.format("%-4s", boxer.getStr()));
+            line.append(String.format("%-4s", boxer.getSpd()));
+            line.append(String.format("%-4s", boxer.getAgl()));
             fw.write(line.toString());        
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -110,12 +110,12 @@ public class DataWriter {
         
         //writes as a data file for storing created fighters
        try(Writer fwd = new FileWriter(BoxerDATA, true)) { 
-            line.append(boxer.GetName());
-            line.append(";").append(boxer.GetStyle());
-            line.append(";").append(boxer.GetStr());
-            line.append(";").append(boxer.GetSpd());
-            line.append(";").append(boxer.GetAgl());
-            line.append(";").append(boxer.GetCnd());
+            line.append(boxer.getName());
+            line.append(";").append(boxer.getStyle());
+            line.append(";").append(boxer.getStr());
+            line.append(";").append(boxer.getSpd());
+            line.append(";").append(boxer.getAgl());
+            line.append(";").append(boxer.getCnd());
             fwd.write(line.toString());
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
