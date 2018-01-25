@@ -34,4 +34,14 @@ public class BoxerDAOImpl implements BoxerDAO {
 		return boxers;
 	}
 
+	@Override
+	public void saveBoxer(Boxer theBoxer) {
+		
+		// get current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// save the boxer 
+		currentSession.save(theBoxer);
+	}
+
 }

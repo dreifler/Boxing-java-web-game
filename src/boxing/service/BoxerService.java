@@ -7,5 +7,7 @@ import boxing.entity.Boxer;
 public interface BoxerService {
 
 	public List<Boxer> getBoxers();
+
+	public void saveBoxer(Boxer theBoxer);
 	
 }

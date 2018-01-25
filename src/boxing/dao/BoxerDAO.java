@@ -7,4 +7,6 @@ import boxing.entity.Boxer;
 public interface BoxerDAO {
 	
 	public List<Boxer> getBoxers();
+
+	public void saveBoxer(Boxer theBoxer);
 }

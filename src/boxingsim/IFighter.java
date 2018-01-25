@@ -32,6 +32,8 @@ public interface IFighter {
     Style getStyle();
     
     Action getCurrent();
+    
+    void setName(String name);
 
     void setAgg(int agg);
 

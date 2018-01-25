@@ -159,6 +159,11 @@ public class Boxer implements IFighter {
     }
     
     @Override
+    public void setName(String name) {
+    		this.name = name;
+    }
+    
+    @Override
     public void setStr(int str) {
         this.str = str;
     }
