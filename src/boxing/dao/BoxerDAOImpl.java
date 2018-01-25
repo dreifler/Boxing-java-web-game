@@ -19,7 +19,6 @@ public class BoxerDAOImpl implements BoxerDAO {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	@Transactional
 	public List<Boxer> getBoxers() {
 		
 		//get the current hibernate session

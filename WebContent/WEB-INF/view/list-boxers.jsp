@@ -6,6 +6,8 @@
 
 <head>
 	<title>List Boxers</title>
+	
+	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 
 <body>
@@ -18,6 +20,11 @@
 	
 	<div id="container">
 		<div id="content">
+		
+		<!-- button calls a spring controller mapping showFormForAdd -->
+			<input type="button" value="Add Boxer"
+				onclick="window.location.href='showFormForAdd'; return false"
+			/>
 		
 			<table>
 				<tr>
