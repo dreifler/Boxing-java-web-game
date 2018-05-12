@@ -30,4 +30,11 @@ public class BoxerServiceImpl implements BoxerService {
 		boxerDAO.saveBoxer(theBoxer);
 	}
 
+	@Override
+	@Transactional
+	public Boxer getBoxer(int theId) {
+		
+		return boxerDAO.getBoxer(theId);
+	}
+
 }

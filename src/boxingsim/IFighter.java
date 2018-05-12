@@ -47,6 +47,8 @@ public interface IFighter {
 
     void setStr(int str);
     
+    void setID(int ID);
+    
     void selectAction();
     
     boolean landed();

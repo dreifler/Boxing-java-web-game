@@ -25,7 +25,8 @@ public class BoxerDAOImpl implements BoxerDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//create a query
-		Query<Boxer> theQuery = currentSession.createQuery("from Boxer", Boxer.class);
+		Query<Boxer> theQuery = currentSession.createQuery("from Boxer order by name", 
+																Boxer.class);
 		
 		//execute query and get result list
 		List<Boxer> boxers = theQuery.getResultList();
@@ -41,7 +42,19 @@ public class BoxerDAOImpl implements BoxerDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// save the boxer 
-		currentSession.save(theBoxer);
+		currentSession.saveOrUpdate(theBoxer);
+	}
+
+	@Override
+	public Boxer getBoxer(int theId) {
+		
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// retrieve/read from database using primary key
+		Boxer theBoxer = currentSession.get(Boxer.class, theId);
+		
+		return theBoxer;
 	}
 
 }

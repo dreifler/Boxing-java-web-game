@@ -24,7 +24,7 @@
 		<!-- button calls a spring controller mapping showFormForAdd -->
 			<input type="button" value="Add Boxer"
 				onclick="window.location.href='showFormForAdd'; return false"
-			/>
+			/>		
 		
 			<table>
 				<tr>
@@ -32,16 +32,27 @@
 					<th>Str</th>
 					<th>Spd</th>
 					<th>Agl</th>
-					<th>cnd</th>
+					<th>Cnd</th>
+					<th>Action</th>
 				</tr>
 				
 				<c:forEach var="tempBoxer" items="${Boxers}">
+				
+				<!--  construct an "update" link with boxer id -->
+				<c:url var="updateLink" value="/boxers/showFormForUpdate">
+					<c:param name="boxerId" value="${tempBoxer.ID}"/>
+				</c:url>
+				
 					<tr>
 						<td>${tempBoxer.name}</td>
 						<td>${tempBoxer.str}</td>
 						<td>${tempBoxer.spd}</td>
 						<td>${tempBoxer.agl}</td>
 						<td>${tempBoxer.cnd}</td>
+						<td>
+						<!-- display the update link -->
+							<a href="${updateLink}">Update</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>

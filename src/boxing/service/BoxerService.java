@@ -9,5 +9,7 @@ public interface BoxerService {
 	public List<Boxer> getBoxers();
 
 	public void saveBoxer(Boxer theBoxer);
+
+	public Boxer getBoxer(int theId);
 	
 }

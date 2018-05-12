@@ -24,8 +24,15 @@
 		<!-- Sends spring to mvc mapping and binds to boxer -->
 		<form:form action="saveBoxer" modelAttribute="boxer" method="POST">
 		
+		<!-- need to associate this data with boxer id -->
+		<form:hidden path="ID" />
+		
 			<table>
 				<tbody>
+					<tr>
+						<td><label>ID:</label></td>
+						<td><form:input path="ID"></form:input>
+					</tr>
 					<tr>
 						<td><label>Name:</label></td>
 						<td><form:input path="name"></form:input></td>

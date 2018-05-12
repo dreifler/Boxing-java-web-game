@@ -128,7 +128,6 @@ public class Boxer implements IFighter {
     }
     
     @Override
-   
     public int getAgl() {
         return agl;
     }
@@ -198,6 +197,11 @@ public class Boxer implements IFighter {
     public void setOpponent(IFighter boxer) {
         this.opponent = boxer;
     }
+    
+	@Override
+	public void setID(int ID) {
+		this.ID = ID;	
+	}
 
     @Override
     public void selectAction() {
@@ -221,5 +225,7 @@ public class Boxer implements IFighter {
 		return "Boxer [style=" + style + ", ID=" + ID + ", name=" + name + ", str=" + str + ", spd=" + spd + ", agl="
 				+ agl + ", cnd=" + cnd + "]";
 	}
+
+
 
 }

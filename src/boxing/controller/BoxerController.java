@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import boxing.dao.BoxerDAO;
 import boxing.entity.Boxer;
@@ -28,7 +29,7 @@ public class BoxerController {
 		//get boxers from the dao
 		List<Boxer> theBoxers = boxerService.getBoxers();
 		
-		//add the customers to the model
+		//add the boxers to the model
 		theModel.addAttribute("Boxers", theBoxers);
 		
 		return "list-boxers";
@@ -53,4 +54,18 @@ public class BoxerController {
 		
 		return "redirect:/boxers/list";
 	}
+	
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(@RequestParam("boxerId") int theId, Model theModel) {
+	
+		//get the boxer from the service
+		Boxer theBoxer = boxerService.getBoxer(theId);
+		
+		// set the customer as a  model attribute to pre-populate the form
+		theModel.addAttribute("boxer", theBoxer);
+		
+		// send over to our form
+		return "boxer-form";
+	}
+
 }
