@@ -11,5 +11,7 @@ public interface BoxerService {
 	public void saveBoxer(Boxer theBoxer);
 
 	public Boxer getBoxer(int theId);
+
+	public void deleteBoxer(int theId);
 	
 }

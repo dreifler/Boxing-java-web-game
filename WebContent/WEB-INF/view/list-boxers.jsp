@@ -43,6 +43,10 @@
 					<c:param name="boxerId" value="${tempBoxer.ID}"/>
 				</c:url>
 				
+				<c:url var = "deleteLink" value="/boxers/delete">
+					<c:param name="boxerId" value="${tempBoxer.ID}"/>
+				</c:url>
+				
 					<tr>
 						<td>${tempBoxer.name}</td>
 						<td>${tempBoxer.str}</td>
@@ -52,6 +56,8 @@
 						<td>
 						<!-- display the update link -->
 							<a href="${updateLink}">Update</a>
+							|
+							<a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this boxer?'))) return false">Delete</a>
 						</td>
 					</tr>
 				</c:forEach>

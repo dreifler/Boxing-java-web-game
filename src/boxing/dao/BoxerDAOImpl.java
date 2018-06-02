@@ -57,4 +57,16 @@ public class BoxerDAOImpl implements BoxerDAO {
 		return theBoxer;
 	}
 
+	@Override
+	public void deleteBoxer(int theId) {
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//delete object with primary key
+		Query theQuery = currentSession.createQuery("delete from Boxer where ID=:boxerId");
+		theQuery.setParameter("boxerId", theId);
+	
+		theQuery.executeUpdate();
+	}
+
 }

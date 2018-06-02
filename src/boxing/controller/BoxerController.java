@@ -67,5 +67,14 @@ public class BoxerController {
 		// send over to our form
 		return "boxer-form";
 	}
+	
+	@GetMapping("/delete")
+	public String deleteCustomer(@RequestParam("boxerId") int theId) {
+		
+		//delete the boxer
+		boxerService.deleteBoxer(theId);
+		
+		return "redirect:/boxers/list";
+	}
 
 }

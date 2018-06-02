@@ -37,4 +37,11 @@ public class BoxerServiceImpl implements BoxerService {
 		return boxerDAO.getBoxer(theId);
 	}
 
+	@Override
+	@Transactional
+	public void deleteBoxer(int theId) {
+		boxerDAO.deleteBoxer(theId);
+		
+	}
+
 }
