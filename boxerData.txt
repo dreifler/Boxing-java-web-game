@@ -1,0 +1,7 @@
+name;style;str;spd;agl;ftg;cnd;tgh;pwr
+Jim;SLUGGER;60;30;30;0
+Alf;BALANCED;40;40;40;0
+Tom;SLUGGER;60;30;30;0
+Ted;BALANCED;40;40;40;0
+Tim;DANCER;30;60;30;0
+Joe;DANCER;30;60;30;0
