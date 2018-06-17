@@ -4,6 +4,11 @@
   <artifactId>spring-app-boxing-maven</artifactId>
   <version>1.0</version>
   <packaging>war</packaging>
+  
+  <properties>
+  	<springframework.version>5.0.6.RELEASE</springframework.version>
+  	<springsecurity.version>5.0.5.RELEASE</springsecurity.version>
+  </properties>
 
   <dependencies>
 
@@ -11,17 +16,17 @@
 	<dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-webmvc</artifactId>
-    	<version>5.0.7.RELEASE</version>
+    	<version>${springframework.version}</version>
 	</dependency>
 	<dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-tx</artifactId>
-    	<version>5.0.7.RELEASE</version>
+    	<version>${springframework.version}</version>
 	</dependency>
 	<dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-orm</artifactId>
-    	<version>5.0.7.RELEASE</version>
+    	<version>${springframework.version}</version>
 	</dependency>
 	
     <dependency>
@@ -34,8 +39,25 @@
   		<artifactId>aspectj-maven-plugin</artifactId>
   		<version>1.11</version>
   		<type>maven-plugin</type>
-	</dependency>
+	 </dependency>
 	
+	
+	<!-- Spring Security -->
+	<dependency>
+    	<groupId>org.springframework.security</groupId>
+    	<artifactId>spring-security-web</artifactId>
+    	<version>${springsecurity.version}</version>
+	</dependency>
+	<dependency>
+    	<groupId>org.springframework.security</groupId>
+    	<artifactId>spring-security-web</artifactId>
+    	<version>${springsecurity.version}</version>
+	</dependency>
+	<dependency>
+    	<groupId>org.springframework.security</groupId>
+    	<artifactId>spring-security-config</artifactId>
+    	<version>${springsecurity.version}</version>
+	</dependency>
         
         <!-- Hibernate -->
 	<dependency>
@@ -80,6 +102,8 @@
   </dependencies>
   
   <build>
+  	<finalName>spring-app-boxing-maven</finalName>
+  
     <sourceDirectory>src</sourceDirectory>
     <resources>
       <resource>
@@ -90,10 +114,11 @@
       </resource>
     </resources>
     
+    <pluginManagement> 
     <plugins>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.0.0</version>
+     <plugin>
+    	<artifactId>maven-war-plugin</artifactId>
+    	<version>3.2.2</version>
         <configuration>
           <warSourceDirectory>WebContent</warSourceDirectory>
         </configuration>
@@ -105,9 +130,8 @@
           <source>1.8</source>
           <target>1.8</target>
         </configuration>
-      </plugin>
-
-      
+      </plugin>      
     </plugins>
+    </pluginManagement>
   </build>
 </project>
