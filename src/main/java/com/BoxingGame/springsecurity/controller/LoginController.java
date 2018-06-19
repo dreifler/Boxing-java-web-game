@@ -1,4 +1,4 @@
-package com.luv2code.springsecurity.demo.controller;
+package com.BoxingGame.springsecurity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

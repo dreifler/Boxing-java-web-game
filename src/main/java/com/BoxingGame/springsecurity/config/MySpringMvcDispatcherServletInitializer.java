@@ -1,4 +1,4 @@
-package com.luv2code.springsecurity.demo.config;
+package com.BoxingGame.springsecurity.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -12,7 +12,7 @@ public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationC
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] { DemoAppConfig.class };
+		return new Class[] { BoxingAppConfig.class };
 	}
 
 	@Override

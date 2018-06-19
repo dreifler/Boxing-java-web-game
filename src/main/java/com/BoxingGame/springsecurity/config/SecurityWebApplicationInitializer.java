@@ -1,4 +1,4 @@
-package com.luv2code.springsecurity.demo.config;
+package com.BoxingGame.springsecurity.config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
