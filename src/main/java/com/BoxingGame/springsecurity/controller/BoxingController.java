@@ -11,4 +11,16 @@ public class BoxingController {
 		
 		return "home";
 	}
+	
+	@GetMapping("/boxers")
+	public String showBoxers(){
+		
+		return "boxers";
+	}
+	
+	@GetMapping("/systems")
+	public String showSystems(){
+		
+		return "systems";
+	}
 }

@@ -20,23 +20,28 @@ public class BoxingSecurityConfig extends WebSecurityConfigurerAdapter {
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		
 		auth.inMemoryAuthentication()
-			.withUser(users.username("john").password("test123").roles("EMPLOYEE"))
-			.withUser(users.username("mary").password("test123").roles("MANAGER"))
-			.withUser(users.username("susan").password("test123").roles("ADMIN"));
+			.withUser(users.username("john").password("test123").roles("PLAYER"))
+			.withUser(users.username("mary").password("test123").roles("PLAYER", "ADMIN"))
+			.withUser(users.username("darren").password("test123").roles("PLAYER","ADMIN", "PROG"));
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
-				.anyRequest().authenticated()
+			.antMatchers("/").hasRole("PLAYER")
+			.antMatchers("/boxers/**").hasRole("ADMIN")
+			.antMatchers("/gyms/**").hasRole("ADMIN")
+			.antMatchers("/systems/**").hasRole("PROG")
 			.and()
 			.formLogin()
 				.loginPage("/showMyLoginPage")
 				.loginProcessingUrl("/authenticateTheUser")
 				.permitAll()
 			.and()
-			.logout().permitAll();
+			.logout().permitAll()
+			.and()
+			.exceptionHandling().accessDeniedPage("/access-denied");
 		
 	}
 		
