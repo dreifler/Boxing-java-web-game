@@ -1,5 +1,8 @@
 package com.BoxingGame.springsecurity.config;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,17 +15,16 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 @EnableWebSecurity
 public class BoxingSecurityConfig extends WebSecurityConfigurerAdapter {
 
+	// add a reference to our security data source
+	@Autowired
+	private DataSource securityDataSource;
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		// add our users for in memory authentication
+		// use jdbc authentication
+		auth.jdbcAuthentication().dataSource(securityDataSource);
 		
-		UserBuilder users = User.withDefaultPasswordEncoder();
-		
-		auth.inMemoryAuthentication()
-			.withUser(users.username("john").password("test123").roles("PLAYER"))
-			.withUser(users.username("mary").password("test123").roles("PLAYER", "ADMIN"))
-			.withUser(users.username("darren").password("test123").roles("PLAYER","ADMIN", "PROG"));
 	}
 
 	@Override

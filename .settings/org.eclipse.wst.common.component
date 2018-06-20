@@ -19,7 +19,7 @@
         
         
         <property name="java-output-path" value="/spring-security-demo-01-base-app/target/classes"/>
-        <property name="context-root" value="spring-app-boxing-security"/>
+        <property name="context-root" value="spring-security-demo"/>
                             
     
     
