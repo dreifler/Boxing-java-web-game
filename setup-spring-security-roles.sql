@@ -8,7 +8,7 @@ USE `boxing`;
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(68) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -19,9 +19,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` 
 VALUES 
-('john','{noop}test123',1),
-('mary','{noop}test123',1),
-('darren','{noop}test123',1);
+('john','{bcrypt}$2a$04$VZR9S21U2ZMz4NKMWHlGoOeesi2q2w3LFXGX/oUGS0AcrbVSHE6xS',1),
+('mary','{bcrypt}$2a$04$7Fdo6Zi8RaRBWYVO0nhIg.R1C0o20zTFelBAEBUTGH1zYV6PQqR2G',1),
+('darren','{bcrypt}$2a$04$VZR9S21U2ZMz4NKMWHlGoOeesi2q2w3LFXGX/oUGS0AcrbVSHE6xS',1);
 
 
 --
