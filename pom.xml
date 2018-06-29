@@ -19,7 +19,7 @@
 
 	<dependencies>
 
-		<!-- Spring MVC support -->
+		<!-- Spring MVC and REST support -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -66,6 +66,14 @@
     		<groupId>org.hibernate</groupId>
     		<artifactId>hibernate-validator</artifactId>
     		<version>6.0.10.Final</version>
+		</dependency>
+		
+		<!-- JSON Databind Jackson -->
+		
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-databind</artifactId>
+    		<version>2.9.6</version>
 		</dependency>
 		
 		<!-- Servlet, JSP and JSTL support -->

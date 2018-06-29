@@ -1,0 +1,13 @@
+{
+	"id": 1,
+	"firstName": "Dan",
+	"lastName": "Ross",
+	"active": true,
+	"stats": {
+		"str": 50,
+		"spd": 50,
+		"agl": 50,
+		"sta": 80
+	},
+	"skills" : ["Chin", "KP", "Learner"]
+}
