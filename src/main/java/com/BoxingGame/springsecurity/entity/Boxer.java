@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.BoxingGame.springsecurity.sim.Style;
+
 @Entity
 @Table(name="Boxers")
 public class Boxer {
@@ -30,8 +32,15 @@ public class Boxer {
 	
 	@Column(name="cnd")
 	private int cnd;
+
+	private Style style;
 	
 	public Boxer() {}
+	
+	public Boxer(String name, Style style) {
+		this.name = name;
+		this.style = style;
+	}
 
 	public Boxer(String name, int str, int spd, int agl, int cnd) {
 		this.name = name;
@@ -91,13 +100,18 @@ public class Boxer {
 		this.cnd = cnd;
 	}
 
+	public Style getStyle() {
+		return style;
+	}
+
+	public void setStyle(Style style) {
+		this.style = style;
+	}
+
 	@Override
 	public String toString() {
 		return "Boxer [ID=" + ID + ", name=" + name + ", str=" + str + ", spd=" + spd + ", agl=" + agl + ", cnd=" + cnd
-				+ "]";
+				+ ", style=" + style + "]";
 	}
-
-	
-	
-	
+		
 }

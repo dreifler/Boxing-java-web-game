@@ -32,14 +32,6 @@
 	</p>
 	</security:authorize>
 	
-	<security:authorize access="hasRole('PROG')">
-	<!-- Add a link to point to /systems ... this is only for programmers -->
-	
-	<p>
-		<a href="${pageContext.request.contextPath}/systems">Game Systems (Restricted Access)</a>
-	</p>
-	</security:authorize>
-	
 	<hr>
 	
 	<!-- Add a logout button -->

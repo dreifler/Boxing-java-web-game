@@ -29,12 +29,6 @@ public class BoxingController {
 		return "boxers";
 	}
 	
-	@GetMapping("/systems")
-	public String showSystems(){
-		
-		return "systems";
-	}
-	
 	// inject boxer service
 	@Autowired
 	private BoxerService boxerService;
