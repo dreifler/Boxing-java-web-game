@@ -28,7 +28,7 @@
 	<!-- Add a link to point to /leaders ... this is for the admin -->
 
 	<p>
-		<a href="${pageContext.request.contextPath}/boxers">Boxer List (Restricted Access)</a>
+		<a href="${pageContext.request.contextPath}/list">Boxer List (Restricted Access)</a>
 	</p>
 	</security:authorize>
 	
